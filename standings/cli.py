@@ -5,7 +5,8 @@ import os
 from argparse import ArgumentParser
 from ConfigParser import ConfigParser
 
-import standings
+from standings import Standings
+
 
 def load_config(file='~/.evestandings.conf'):
     config = ConfigParser()
@@ -19,11 +20,8 @@ def load_config(file='~/.evestandings.conf'):
     else:
         return {}
 
-def output_html(keyid, vcode, character, type):
-    sys.stdout.write(Standings(keyid, vcode, character, type=type)._get_html())
 
-if __name__ == '__main__':
-
+def main():
     parser = ArgumentParser(prog='EVEStandings', description='Outputs a EVE corporation/alliance standings to a HTML page')
     parser.add_argument('-k', '--keyid', help='Key ID of the API key')
     parser.add_argument('-v', '--vcode', help='vCode of the API key')
@@ -32,7 +30,6 @@ if __name__ == '__main__':
     parser.add_argument('-C', '--config', help='Path to your configuration file')
     parser.add_argument('-f', '--output', help='Output the resulting HTML to a file')
     parser.add_argument('--template', help='Location of a customized template to use instead of the default')
-    parser.add_argument('--version', action='version', version='%(prog)s ' + standings.__version__)
 
     ns = parser.parse_args()
 
@@ -48,10 +45,10 @@ if __name__ == '__main__':
     if not conf.keyid or not conf.vcode:
         sys.stderr.write('Key ID or vCode is missing, please provide both on the command line or in the config file\n')
         parser.print_help()
-        sys.exit(os.EX_USAGE)
+        sys.exit(1)
 
     print ns
-    obj = standings.Standings(conf.keyid, conf.vcode, conf.character)
+    obj = Standings(conf.keyid, conf.vcode, conf.character)
     html = obj._get_html(conf.template)
 
     if conf.output:

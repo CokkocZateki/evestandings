@@ -2,3 +2,6 @@ env/
 test.py
 build/
 *.pyc
+.idea/
+dist
+*.egg-info
