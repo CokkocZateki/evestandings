@@ -22,22 +22,22 @@ class Standings(object):
         for row in standingslist:
             level = float(row['standing'])
             if level > 5:
-                type = 'excellent'
+                type = 'Excellent'
             elif level > 0:
-                type = 'good'
+                type = 'Good'
             elif level >= -5:
-                type = 'bad'
+                type = 'Bad'
             elif level >= -10:
-                type = 'terrible'
+                type = 'Terrible'
             else:
-                type = 'neutral'
+                type = 'Neutral'
 
             if row['contactTypeID'] == 16159:
-                rowtype = 'alli'
+                rowtype = 'Alliance'
             elif row['contactTypeID'] == 2:
-                rowtype = 'corp'
+                rowtype = 'Corporation'
             else:
-                rowtype = 'char'
+                rowtype = 'Character'
 
             output[type].append((rowtype, row['contactID'], row['contactName'], row['standing']))
 
@@ -45,11 +45,11 @@ class Standings(object):
         if hasattr(self, '_standings_cache'):
             return self._standings_cache
         res = self.eveapi.corp.ContactList()
-        standings = OrderedDict((x, []) for x in ['excellent', 'good', 'neutral', 'bad', 'terrible'])
+        standings = OrderedDict((x, []) for x in ['Excellent', 'Good', 'Neutral', 'Bad', 'Terrible'])
         self._parse_list(res.allianceContactList, standings)
         self._parse_list(res.corporateContactList, standings)
         print standings
-        for x in ['excellent', 'good', 'neutral', 'bad', 'terrible']:
+        for x in ['Excellent', 'Good', 'Neutral', 'Bad', 'Terrible']:
             standings[x] = sorted(standings[x], key=lambda v: -int(v[3]))
         self._standings_cache = standings
         return standings
