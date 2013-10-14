@@ -11,7 +11,7 @@ setup(name="standings",
       url="https://dev.pleaseignore.com/",
       keywords="eveapi",
       packages=['standings'],
-      package_data={'standings': ['templates/*.html']},
+      package_data={'standings': ['templates/*']},
       entry_points={
           'console_scripts': [
               'evestandings = standings.cli:main',

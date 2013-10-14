@@ -1,0 +1,8 @@
+{% for type in standings %}
+{{ type }}
+
+{% for type, id, entname, standing in standings[type] %}
+{{ standing }} - {{ entname }}
+{% endfor %}
+
+{% endfor %}
