@@ -25,7 +25,6 @@ def main():
     parser = ArgumentParser(prog='EVEStandings', description='Outputs a EVE corporation/alliance standings to a HTML page')
     parser.add_argument('-k', '--keyid', help='Key ID of the API key')
     parser.add_argument('-v', '--vcode', help='vCode of the API key')
-    parser.add_argument('-t', '--type', help='Type of standings list, either corp or alliance')
     parser.add_argument('-C', '--config', help='Path to your configuration file')
     parser.add_argument('-f', '--output', help='Output the resulting HTML to a file')
     parser.add_argument('--template', help='Location of a customized template to use instead of the default')
