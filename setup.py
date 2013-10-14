@@ -2,7 +2,7 @@
  
 from setuptools import setup
 from standings import __version__
- 
+
 setup(name="standings",
       version=__version__,
       description="EVE API Standings Page Generator",
@@ -20,5 +20,11 @@ setup(name="standings",
       classifiers=[
           'License :: OSI Approved :: BSD License',
           'Development Status :: 3 - Alpha',
-      ]
+      ],
+      install_requirements=[
+        'eveapi',
+        'ordereddict',
+        'jinja2',
+        'argparse',
+      ],
 )
