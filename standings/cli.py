@@ -30,9 +30,8 @@ def main():
     parser.add_argument('--template', help='Location of a customized template to use instead of the default')
 
     ns = parser.parse_args()
-    print ns
 
-    if 'keyid' in ns or 'vcode' in ns:
+    if ns.keyid and ns.vcode:
         conf = ns
     else:
         if ns.config:
