@@ -48,7 +48,6 @@ class Standings(object):
         standings = OrderedDict((x, []) for x in ['Excellent', 'Good', 'Neutral', 'Bad', 'Terrible'])
         self._parse_list(res.allianceContactList, standings)
         self._parse_list(res.corporateContactList, standings)
-        print standings
         for x in ['Excellent', 'Good', 'Neutral', 'Bad', 'Terrible']:
             standings[x] = sorted(standings[x], key=lambda v: -int(v[3]))
         self._standings_cache = standings

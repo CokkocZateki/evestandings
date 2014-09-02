@@ -1,4 +1,4 @@
-eveapi
 ordereddict
-jinja2
+jinja2==2.7.3
 argparse
+eveapi>=1.2.6

@@ -3,7 +3,10 @@
 import sys
 import os
 from argparse import ArgumentParser
-from ConfigParser import ConfigParser
+try:
+    from configparser import ConfigParser
+except ImportError:
+    from ConfigParser import ConfigParser
 
 from standings import Standings
 
@@ -38,7 +41,7 @@ def main():
             conf = load_config(ns.config)
         else:
             conf = load_config()
-    if not conf.keyid or not conf.vcode:
+    if not hasattr(conf, 'keyid') or not hasattr(conf, 'vcode') or not conf.keyid or not conf.vcode:
         sys.stderr.write('Key ID or vCode is missing, please provide both on the command line or in the config file\n')
         parser.print_help()
         sys.exit(1)
@@ -57,3 +60,7 @@ def main():
         sys.stdout.write(output)
 
     sys.exit(0)
+
+
+if __name__ == '__main__':
+    main()
