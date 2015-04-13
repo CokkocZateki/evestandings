@@ -42,15 +42,12 @@ class Standings(object):
             output[type].append((rowtype, row['contactID'], row['contactName'], row['standing']))
 
     def _get_standings(self):
-        if hasattr(self, '_standings_cache'):
-            return self._standings_cache
         res = self.eveapi.corp.ContactList()
         standings = OrderedDict((x, []) for x in ['Excellent', 'Good', 'Neutral', 'Bad', 'Terrible'])
         self._parse_list(res.allianceContactList, standings)
         self._parse_list(res.corporateContactList, standings)
         for x in ['Excellent', 'Good', 'Neutral', 'Bad', 'Terrible']:
             standings[x] = sorted(standings[x], key=lambda v: -int(v[3]))
-        self._standings_cache = standings
         return standings
 
     def render_template(self, template):
