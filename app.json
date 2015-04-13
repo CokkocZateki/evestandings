@@ -1,0 +1,17 @@
+{
+    "name": "evestandings",
+    "description": "A corporation/alliance standings listing webapp for EVE Online",
+    "repository": "https://github.com/nikdoof/evestandings",
+    "keywords": ["python", "eve online"],
+    "env": {
+        "API_KEY_ID": {
+            "description": "KeyID of a corporation Director API Key.",
+            "required": true
+        },
+        "API_KEY_VCODE": {
+            "description": "vCode of a corporation Director API Key.",
+            "value": "next_action",
+            "required": false
+        }
+    }
+}
