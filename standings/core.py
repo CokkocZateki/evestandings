@@ -13,8 +13,8 @@ STANDINGS_CORPORATION = 1
 class Standings(object):
     """Grabs the latest Standings from the EVE API and outputs them into a nice template format"""
 
-    def __init__(self, keyid, vcode):
-        self.eveapi = EVEAPIConnection().auth(keyID=keyid, vCode=vcode)
+    def __init__(self, keyid, vcode, cache_handler=None):
+        self.eveapi = EVEAPIConnection(cacheHandler=cache_handler).auth(keyID=keyid, vCode=vcode)
         self.standings_type = type
 
     @staticmethod
