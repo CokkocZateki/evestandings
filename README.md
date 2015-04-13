@@ -3,6 +3,8 @@ EVEStandings
 
 A simple library / cli tool to create a standings overview page for a EVE Online corporation or alliance.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 Usage
 -----
 
