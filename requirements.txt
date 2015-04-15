@@ -2,3 +2,5 @@ ordereddict
 jinja2==2.7.3
 argparse
 eveapi>=1.2.6
+Flask==0.10.1
+Flask-Redis==0.0.6
