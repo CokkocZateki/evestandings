@@ -13,5 +13,6 @@
             "value": "next_action",
             "required": false
         }
-    }
+    },
+    "addons": ["redistogo"]
 }
