@@ -6,7 +6,7 @@ from standings.cache import EVEAPIRedisCache
 
 
 app = Flask(__name__)
-app.config['REDIS_URL'] = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
+app.config['REDIS_URL'] = os.environ.get('REDIS_URL', os.environ.get('REDISTOGO_URL', 'redis://localhost:6379/0'))
 app.config['API_KEY_ID'] = os.environ.get('STANDINGS_API_KEY_ID')
 app.config['API_KEY_VCODE'] = os.environ.get('STANDINGS_API_KEY_VCODE')
 redis = Redis(app)
