@@ -10,7 +10,6 @@
         },
         "STANDINGS_API_KEY_VCODE": {
             "description": "vCode of a corporation Director API Key.",
-            "value": "next_action",
             "required": false
         }
     },
